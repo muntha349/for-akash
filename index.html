@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Akash ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0006, #3a001e, #0f0006);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Lock Card Screen */
+        #login-box {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 90%;
+            max-width: 360px;
+            z-index: 10;
+        }
+
+        #login-box h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #ff4d88;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ff4d88;
+            outline: none;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+        }
+
+        button {
+            background: #ff4d88;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 77, 136, 0.4);
+            transition: 0.3s ease;
+            width: 100%;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        /* Main Content Container */
+        #content {
+            display: none;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            padding: 20px 0;
+            z-index: 10;
+        }
+
+        /* Photo Gallery Styling */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0 15px 0;
+        }
+
+        .img-frame {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #ff4d88;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 77, 136, 0.7);
+            animation: pulse 2.5s infinite alternate;
+        }
+
+        .img-frame img, .main-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* AI Couple Photo Frame */
+        .main-frame {
+            width: 240px;
+            height: 240px;
+            border-radius: 20px;
+            border: 4px solid #ff4d88;
+            margin: 15px auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 77, 136, 0.7);
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        .card-text {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 15px;
+            line-height: 1.8;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #ff4d88;
+            font-weight: bold;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: fixed;
+            color: #ff4d88;
+            font-size: 20px;
+            animation: moveUp 4s linear infinite;
+            bottom: -20px;
+            z-index: 1;
+        }
+
+        @keyframes moveUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.3); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Passcode Screen -->
+    <div id="login-box">
+        <div style="font-size: 40px; margin-bottom: 10px;">🔒❤️</div>
+        <h2>Secret Access</h2>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Yeh website sirf mera <b>Akash</b> khol sakta hai:</p>
+        
+        <input type="text" id="pass-input" placeholder="Passcode yahan likhein...">
+        <button onclick="checkPass()">Open Karein ✨</button>
+        <p id="err-msg" style="color: #ff4d88; margin-top: 12px; font-size: 13px; display: none;">Wrong Passcode! Dobara koshish karo 😉</p>
+    </div>
+
+    <!-- Main Content Screen -->
+    <div id="content">
+        <h1 style="color: #ff4d88; font-size: 24px;">Mera Akash (Muntha Ki Jan) ❤️</h1>
+        
+        <!-- Individual Photos -->
+        <div class="photo-gallery">
+            <div class="img-frame">
+                <img src="akash.jpg" alt="Akash">
+            </div>
+            <div class="img-frame">
+                <img src="muntha.jpg" alt="Muntha">
+            </div>
+        </div>
+
+        <!-- AI Edited Couple Photo -->
+        <div class="main-frame">
+            <img src="couple.jpg" alt="Akash and Muntha">
+        </div>
+
+        <div class="card-text">
+            <p>Sach bolun toh bas aapki narazgi dekhi nahi jaati... Aap meri zindagi ka wo haseen hissa ho jiske bina mera har din adhoora hai. 💕</p>
+            <br>
+            <p>Aapki ek smile mere saare din ki thakann door kar deti hai. Main bas yeh chahti hoon ke humare darmayan hamesha itni hi mohabbat rahe.</p>
+            <br>
+            <p class="highlight">Aapki Muntha aap se dunya mein sab se ziada mohabbat karti hai! ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        const SECRET_PASSWORD = "Meri qul kainat Sirf Tum ho Meri Jind";
+
+        function checkPass() {
+            var input = document.getElementById("pass-input").value.trim();
+            
+            if(input.toLowerCase() === SECRET_PASSWORD.toLowerCase()) {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("content").style.display = "block";
+                
+                // Play Music
+                var music = document.getElementById("bg-music");
+                music.play().catch(e => console.log("Audio play blocked"));
+
+                // Start Hearts Effect
+                setInterval(createHeart, 300);
+            } else {
+                document.getElementById("err-msg").style.display = "block";
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+    </script>
+</body>
+</html>
